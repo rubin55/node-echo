@@ -1,0 +1,15 @@
+{
+  "name": "node-echo",
+  "version": "1.0.0",
+  "description": "A request echo'ing HTTP server based on Express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}

@@ -37,9 +37,9 @@ app.post('/jsonencoded', jsonParser, function (req, res) {
     var result = JSON.stringify(req.body, null, 4)
     console.log('received POST request, artificially waiting 2 secs with reply')
     let fn= () => {
-        console.log('timeout completed')
         res.setHeader('Content-Type', 'application/json')
         res.send(result);
+        console.log(result)
     };
     setTimeout(fn, 2000);
 })
@@ -49,6 +49,7 @@ app.put('/jsonencoded', jsonParser, function (req, res) {
     var result = JSON.stringify(req.body, null, 4)
     res.setHeader('Content-Type', 'application/json')
     res.send(result);
+    console.log(result)
 })
 
 app.listen(3000);

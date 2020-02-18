@@ -19,21 +19,21 @@ function sleep(n) {
 
 
 // POST with urlencoded bodies
-app.post('/formencoded', urlencodedParser, function (req, res) {
+app.post('/formencoded*', urlencodedParser, function (req, res) {
     console.log(req.body)
     res.setHeader('Content-Type', 'text/plain')
     res.send(req.body);
 })
 
 // PUT with urlencoded bodies
-app.put('/formencoded', urlencodedParser, function (req, res) {
+app.put('/formencoded*', urlencodedParser, function (req, res) {
     console.log(req.body)
     res.setHeader('Content-Type', 'text/plain')
     res.send(req.body);
 })
 
 // POST with JSON bodies
-app.post('/jsonencoded', jsonParser, function (req, res) {
+app.post('/jsonencoded*', jsonParser, function (req, res) {
     var result = JSON.stringify(req.body, null, 4)
     console.log('received POST request, artificially waiting 2 secs with reply')
     let fn= () => {
@@ -45,7 +45,7 @@ app.post('/jsonencoded', jsonParser, function (req, res) {
 })
 
 // PUT with JSON bodies
-app.put('/jsonencoded', jsonParser, function (req, res) {
+app.put('/jsonencoded*', jsonParser, function (req, res) {
     var result = JSON.stringify(req.body, null, 4)
     res.setHeader('Content-Type', 'application/json')
     res.send(result);
@@ -53,5 +53,4 @@ app.put('/jsonencoded', jsonParser, function (req, res) {
 })
 
 app.listen(3000);
-
 

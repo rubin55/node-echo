@@ -29,6 +29,7 @@ app.post('/formencoded*', urlencodedParser, function (req, res) {
 app.put('/formencoded*', urlencodedParser, function (req, res) {
     console.log(req.body)
     res.setHeader('Content-Type', 'text/plain')
+    res.status(429);
     res.send(req.body);
 })
 
@@ -38,6 +39,7 @@ app.post('/jsonencoded*', jsonParser, function (req, res) {
     console.log('received POST request, artificially waiting 2 secs with reply')
     let fn= () => {
         res.setHeader('Content-Type', 'application/json')
+        res.status(429);
         res.send(result);
         console.log(result)
     };

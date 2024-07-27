@@ -35,13 +35,17 @@ app.put('/formencoded*', urlencodedParser, function (req, res) {
 
 // POST with JSON bodies
 app.post('/jsonencoded*', jsonParser, function (req, res) {
-    var result = JSON.stringify(req.body, null, 4)
+    var req_headers = JSON.stringify(req.headers, null, 4)
+    var req_body = JSON.stringify(req.body, null, 4)
     console.log('received POST request, artificially waiting 2 secs with reply')
     let fn= () => {
         res.setHeader('Content-Type', 'application/json')
         res.status(429);
-        res.send(result);
-        console.log(result)
+        res.send(req_body);
+        console.log(req_headers)
+        console.log('')
+        console.log(req_body)
+
     };
     setTimeout(fn, 2000);
 })
@@ -54,5 +58,4 @@ app.put('/jsonencoded*', jsonParser, function (req, res) {
     console.log(result)
 })
 
-app.listen(3000);
-
+app.listen(4000);
